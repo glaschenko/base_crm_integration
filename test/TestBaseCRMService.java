@@ -1,9 +1,9 @@
+import base.BaseCRMService;
 import junit.framework.TestCase;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 

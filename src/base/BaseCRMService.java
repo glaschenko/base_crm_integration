@@ -1,3 +1,5 @@
+package base;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -96,13 +98,13 @@ public class BaseCRMService {
             }
         }
     }
-
-    private void addBasicData(JSONObject dataObject) {
-        dataObject.put("created_at", new Date());
-        dataObject.put("updated_at", new Date());
-        dataObject.put("creator_id", OWNER_ID);
-        dataObject.put("owner_id", OWNER_ID);
-    }
+//
+//    private void addBasicData(JSONObject dataObject) {
+//        dataObject.put("created_at", new Date());
+//        dataObject.put("updated_at", new Date());
+//        dataObject.put("creator_id", OWNER_ID);
+//        dataObject.put("owner_id", OWNER_ID);
+//    }
 
     private StringEntity wrapToStringEntity(JSONObject obj) {
         StringEntity entity;
@@ -114,11 +116,11 @@ public class BaseCRMService {
         return entity;
     }
 
-    private void addMeta(JSONObject obj, String typeValue) {
-        Map<String, String> meta = new HashMap<>();
-        meta.put("type",typeValue);
-        obj.put("meta", meta);
-    }
+//    private void addMeta(JSONObject obj, String typeValue) {
+//        Map<String, String> meta = new HashMap<>();
+//        meta.put("type",typeValue);
+//        obj.put("meta", meta);
+//    }
 
     private HttpGet initGetRequest(String path) {
         HttpGet request = new HttpGet(URL + path);
@@ -138,7 +140,7 @@ public class BaseCRMService {
         request.addHeader("Authorization", "Bearer " + token);
     }
 
-    private StringBuilder readHttpEntity(HttpEntity entity) throws IOException {
+    public static StringBuilder readHttpEntity(HttpEntity entity) throws IOException {
         InputStreamReader in = new InputStreamReader(entity.getContent());
         BufferedReader rd = new BufferedReader(in);
         StringBuilder sb = new StringBuilder();
