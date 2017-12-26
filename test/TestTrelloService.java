@@ -33,7 +33,7 @@ public class TestTrelloService extends TestCase {
     }
 
     private FileReader readToken(){
-        File file = new File("trello_token.json");
+        File file = new File("trello_key.json");
         try {
             return new FileReader(file);
         } catch (FileNotFoundException e) {
