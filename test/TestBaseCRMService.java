@@ -1,5 +1,6 @@
 import base.BaseCRMService;
 import junit.framework.TestCase;
+import lombok.Cleanup;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -52,7 +53,7 @@ public class TestBaseCRMService extends TestCase {
     private String readToken(){
         File file = new File("token.txt");
         try {
-            Scanner s = new Scanner(file);
+            @Cleanup Scanner s = new Scanner(file);
             return s.next();
         } catch (FileNotFoundException e) {
             throw new IllegalStateException(e);
