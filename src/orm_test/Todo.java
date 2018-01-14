@@ -1,6 +1,7 @@
 package orm_test;
 
 import lombok.Data;
+import org.eclipse.persistence.annotations.Index;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,5 +19,6 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String summary;
+    @Index(name = "description_idx", unique = true)
     private String description;
 }

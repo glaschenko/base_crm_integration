@@ -14,11 +14,11 @@ import java.util.List;
  */
 @Data
 @Builder
-public class Person {
+public class LBPerson {
     @NonNull
     private final Date dob;
     private String name;
     private boolean male;
     @Singular
-    private List<Person> friends;
+    private List<LBPerson> friends;
 }

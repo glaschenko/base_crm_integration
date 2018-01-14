@@ -3,6 +3,7 @@ package orm_test;
 import lombok.Data;
 import org.eclipse.persistence.annotations.*;
 import org.eclipse.persistence.annotations.Cache;
+import org.eclipse.persistence.annotations.Index;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,6 +14,8 @@ import java.util.List;
  */
 @Entity
 @Data
+@Cacheable
+@NamedQuery(name = "familyByName", query = "select f from Family f where f.familyName like :name")
 public class Family {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -20,8 +23,9 @@ public class Family {
 
     private String familyName;
 
-    @OneToMany(mappedBy = "family")
-//    @Noncacheable
+    @OneToMany(mappedBy = "family", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+//    @JoinFetch(JoinFetchType.OUTER)
+//    @BatchFetch(BatchFetchType.JOIN)
     private List<Person> members;
 
 

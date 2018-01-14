@@ -1,16 +1,12 @@
 import junit.framework.TestCase;
-import lombok.Cleanup;
 import lombok.SneakyThrows;
 import lombok_test.Order;
-import lombok_test.Person;
+import lombok_test.LBPerson;
 import lombok_test.SneakyThrow;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /*
  * Author: glaschenko
@@ -34,9 +30,9 @@ public class TestLombok extends TestCase {
     @SneakyThrows
     public void testBuilder(){
         DateFormat f = SimpleDateFormat.getDateInstance();
-        Person arina = Person.builder().name("Arina").dob(f.parse("18.05.1982")).build();
-        Person kostya = Person.builder().name("Kostya").dob(f.parse("17.05.1982")).build();
-        Person andrey = Person.builder().dob(f.parse("19.05.1982")).male(true).name("Andrey Glaschenko")
+        LBPerson arina = LBPerson.builder().name("Arina").dob(f.parse("18.05.1982")).build();
+        LBPerson kostya = LBPerson.builder().name("Kostya").dob(f.parse("17.05.1982")).build();
+        LBPerson andrey = LBPerson.builder().dob(f.parse("19.05.1982")).male(true).name("Andrey Glaschenko")
                 .friend(arina).friend(kostya).build();
         System.out.println(andrey);
     }

@@ -1,16 +1,11 @@
 package orm_test;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
 import org.eclipse.persistence.annotations.Cache;
 import org.eclipse.persistence.annotations.CacheType;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 /*
  * Author: glaschenko
@@ -18,10 +13,8 @@ import java.util.Date;
  */
 @Entity
 @Cache(type = CacheType.FULL)
-public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
+@DiscriminatorValue("HUMAN")
+public class Person extends Mammal {
 
     private Date dob;
     private String name;
@@ -29,13 +22,11 @@ public class Person {
 
     private Family family;
 
-    public int getId() {
-        return id;
-    }
+    @Enumerated(EnumType.STRING)
+    private Nationality nationality;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @ManyToMany
+    private Set<Person> friends;
 
     public Date getDob() {
         return dob;
@@ -69,8 +60,25 @@ public class Person {
         this.family = family;
     }
 
+    public Set<Person> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Set<Person> friends) {
+        this.friends = friends;
+    }
+
     @Override
     public String toString() {
-        return name;
+        return name + ", v. " + getVersion() + ", family: " + family.getFamilyName();
     }
+
+    public Nationality getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(Nationality nationality) {
+        this.nationality = nationality;
+    }
+
 }

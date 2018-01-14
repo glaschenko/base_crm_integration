@@ -12,7 +12,7 @@
             <property name="javax.persistence.jdbc.password" value="root" />
 
             <!-- EclipseLink should create the database schema automatically -->
-            <property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
             <property name="eclipselink.ddl-generation.output-mode" value="both" />
         </properties>
     </persistence-unit>
@@ -20,6 +20,11 @@
     <persistence-unit name="family" transaction-type="RESOURCE_LOCAL">
         <class>orm_test.Family</class>
         <class>orm_test.Person</class>
+        <class>orm_test.Mammal</class>
+        <class>orm_test.Dog</class>
+        <class>orm_test.Transport</class>
+        <class>orm_test.Bus</class>
+        <class>orm_test.Airplane</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
             <property name="javax.persistence.jdbc.url"
@@ -30,13 +35,13 @@
             <!-- EclipseLink should create the database schema automatically -->
             <property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
             <!--<property name="eclipselink.ddl-generation.output-mode" value="both" />-->
-            <property name="eclipselink.weaving" value="static" />
+            <!--<property name="eclipselink.weaving" value="true" />-->
             <property name="eclipselink.logging.level.sql" value="FINEST" />
             <property name="eclipselink.logging.level" value="FINE" />
             <property name="eclipselink.logging.level.cache" value="FINE" />
-            <property name="eclipselink.cache.shared.default" value="false"/>
-            <property name="eclipselink.query-results-cache" value="false"/>
-            <property name="eclipselink.cache.type.default" value="None"/>
+            <!--<property name="eclipselink.cache.shared.default" value="false"/>-->
+            <!--<property name="eclipselink.query-results-cache" value="false"/>-->
+            <!--<property name="eclipselink.cache.type.default" value="None"/>-->
         </properties>
     </persistence-unit>
 
