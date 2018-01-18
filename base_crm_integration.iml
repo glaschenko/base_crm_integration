@@ -19,5 +19,8 @@
     <orderEntry type="library" name="javax.persistence_2.2.0.v201708071007" level="project" />
     <orderEntry type="library" name="org.apache.derby:derby:10.13.1.1" level="project" />
     <orderEntry type="library" name="org.postgresql:postgresql:9.3-1101-jdbc4" level="project" />
+    <orderEntry type="library" name="org.jooq:jooq:3.10.3" level="project" />
+    <orderEntry type="library" name="org.jooq:jooq-meta:3.10.3" level="project" />
+    <orderEntry type="library" name="org.jooq:jooq-codegen:3.10.3" level="project" />
   </component>
 </module>
