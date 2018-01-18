@@ -178,7 +178,10 @@ public class TestJooq extends TestCase {
         conf.set(SQLDialect.POSTGRES_9_3);
         conf.set(connection);
         conf.set(settings);
+        
         return conf;
+    }
+    public void test(){
     }
 
     @SneakyThrows
